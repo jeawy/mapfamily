@@ -1,0 +1,58 @@
+{% extends "admin/m_base_site.html" %}
+ {% block title %}板块列表{% endblock %} 
+{% load admin_static %}
+{% block extrahead %} {{ block.super }} 
+<script type="text/javascript"  src="{% static 'js/common.js' %}"></script>  
+{{ media }}
+{% endblock %}
+{% block extrastyle %}{{ block.super }}
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/notebook.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/m_hostpage.css" /> 
+<link rel="stylesheet" type="text/css" media="screen" href="{% static "blocks/css/m_forum_block.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "css/m_brand.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "css/menu/m_styles.css" %}" />
+<link rel="stylesheet" type="text/css" media="screen" href="{% static "blocks/css/m_menu.css" %}" />
+ 
+{% endblock %}
+ {% block keywords%}心事 每日一句 推荐{%endblock%}
+  {% block description%} 你是不是也想要一个只属于自己的小屋，漂亮温馨就..{%endblock%}
+ {% block bodyclass %}{{ block.super }} 
+{% endblock %}
+ {% block headertitle %}   
+ {% endblock %}  
+{% block content %}
+
+
+{% if request.user %}
+<div class="container">
+    <div class="row">
+        {% for block in blocks %}
+        <div class="col-xs-3 col-sm-3 col-md-3 block">
+            {{block.title}}
+        </div>
+        {% endfor %} 
+    </div>
+</div>  
+{% endif %}
+ {% endblock %}
+ 
+ {% block custom_footer_user_li_selected %}custom_footer_user_li_selected{% endblock %}
+ {% block custom_footer_user_div_selected %}custom_footer_user_div_selected{% endblock %}
+ 
+ {% block footer_script %}{{ block.super}}
+ 
+ {% endblock %} 
+
+ {% block custom_footer_menu %}
+
+{{block.super}} 
+ 
+ 
+<div id="sub_menu_footer"> 
+
+<div class="sub_menu_list_div"><a class="sub_menu_list_a" href="{% url 'blocks:newblock'  %}"><i class="fa fa-sitemap sub_menu_list_i"></i><div class="sub_link_text">新建</div></a></div> 	 	
+   
+</div>
+ 
+ {% endblock %}
+ 

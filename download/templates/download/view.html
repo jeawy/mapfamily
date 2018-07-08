@@ -1,0 +1,70 @@
+{% extends "admin/base_site.html" %}
+{% block title %}download vedio{% endblock %} 
+{% load i18n admin_static %}
+{% block extrahead %}{{ block.super }}
+
+{{ media }}
+{% endblock %}
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static "admin/css/login.css" %}" />
+<style>
+#login-form, #content{
+  height: 300px;
+}
+#user-tools{
+  float: left;
+  height: 100px;
+  
+}
+.login #container
+{
+width: 60%;
+margin-top: 50px;
+}
+.download_btn
+{
+  position: absolute;
+  right: 31%;
+  top: 45%;
+  height: 50px;
+  width: 40%;
+}
+
+.desc
+{
+    float: left;
+    position: absolute;
+    
+}
+  </style>
+{% endblock %}
+{% block branding %}{% endblock %}
+
+ 
+{% block bodyclass %}{{ block.super }} login{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block content_title %}{% endblock %}
+
+
+{% block content %} 
+<div id="content-main ">
+    <form action="/download/vedio/" method="post" id="login-form">{% csrf_token %}
+      
+      
+      <input type="submit" class="download_btn" value="{% trans 'Download the Vedio' %}" />  
+      
+    </form> 
+</div>
+{% endblock %}
+{% block footer %}
+{% endblock%}
+{% block footer_script %}
+{% endblock%}
+{% block breadcrumbs %}
+{% endblock%}
+{% block welcome-msg %} 
+ <strong class="desc">This vedio is tog-16-0081-video (size: 18.5MB)</strong> {% endblock %} 
+ 

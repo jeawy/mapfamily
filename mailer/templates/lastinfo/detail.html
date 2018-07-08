@@ -1,0 +1,24 @@
+{% extends "admin/base_site.html" %}
+{% block title %}{{ page }}  {{ site_title|default:_('') }}{% endblock %}
+{% block extrahead %}{{ block.super }}
+
+{{ media }}
+{% endblock %}
+{% block extrastyle %} {{ block.super }}
+ {% endblock %}
+
+{% block coltype %}colM{% endblock %}
+
+{% block bodyclass %}{{ block.super }} app-{{ opts.app_label }} model-{{ opts.model_name }} change-form{% endblock %}
+{% block content %}
+<div class="detail">
+{% if lastinfo %}
+ 
+                <h1>{{ lastinfo.title }}</h1>
+				<hr>
+                
+				<div>{{lastinfo.mgs|safe}}</div>
+				 
+		{% endif %}
+</div>
+{% endblock %}

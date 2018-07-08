@@ -1,0 +1,97 @@
+{% extends 'admin/base.html' %}
+{% block publicmenu %}
+{% include 'admintitle.html' %}
+{% endblock %}
+{% block fixed_menu_class %}fixed_menu_class{%endblock%}
+{% load i18n %}
+{% block pagetitle%}创建商品信息{% endblock%}
+ {% block css %}
+<link href="/static/products/css/new.css" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="/static/css/HoldOn.css">  {% endblock %} 
+{% block content %}
+<form action="" method="post">
+    {%csrf_token%} 
+    <input type="hidden" name="method" value="detail_file" /> 
+    <input type="hidden" id="mainrulename" value="{{rulename}}" />   
+    <input type="hidden" id="vicerulename" value="{{vicerulename}}" />  
+    
+</form>
+
+<section>
+    <!-- 路径导航 -->
+    <div class="container-fluid">
+        <ol class="breadcrumb container">
+            <li><a href="/aftersales/aftersales/">管理中心</a></li>
+            <li><a href="{% url 'product:products' %}">商品列表</a></li>
+            <li class="active">发布商品</li>
+        </ol>
+    </div>
+
+
+    <div  class="form-horizontal">
+        <div class="form-group">
+            <label for="id" class="col-xs-2 control-label">商品类型：</label>
+            <div class="col-xs-2">
+                <select class="form-control " id="sel-category">
+                    {% for categoryitem in categories %} 
+                    {% if categoryitem.id == category.id %}
+                    <option value ="{{categoryitem.id}}" selected="selected" >{{categoryitem.name}}</option>
+                    {% else %}
+                    <option value ="{{categoryitem.id}}"  >{{categoryitem.name}}</option>
+                    {% endif %}
+                    {% endfor%}
+                </select>
+            </div>
+            <label for="id" class="col-xs-2 control-label">商品名称：
+            </label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" name="title" id="title" value="{{product.title}}" placeholder="">
+            </div>
+
+        </div>
+        
+        <div class="form-group">
+            <label for="name" class="col-xs-2 control-label">{% trans 'Product Detail' %}:</label>
+            <div class="col-xs-8 ta-wrap">
+                <input type="text" class="form-control" name="desc" value="{{product.description|default:''}}" id="desc" placeholder="">
+                <span>0/50</span>
+            </div>
+
+        </div>
+      
+        <div class="form-group">
+            <label for="message" class="col-xs-2 control-label">商品详情：</label>
+            <div class="col-xs-8">
+                {{ form.as_p }} 
+            </div>
+
+        </div> 
+
+    </div>
+    <div class="msg "> </div>
+    <div class="divsubmit">
+        <span class="btn-group " role="group " aria-label="... ">
+            <button type="button" class="submit btn orange-bg white " status="1">发布</button>
+            <button type="button " class="submit btn orange-bg white " status="0">存草稿</button>
+            <!-- <button type="button " class=" submit btn orange-bg white " status="3">
+                <i class="fa fa-file-text-o " aria-hidden="true "></i>
+            </button> -->
+        </span>
+    </div>
+</section>
+{% endblock %} 
+{% block js %} 
+<script type="text/javascript" src="/static/js/HoldOn.min.js"></script>
+ 
+{{ form.media }}
+<script type="text/javascript" src="/static/products/js/new.js"></script>
+{% if category.id == 27 %}
+<script type="text/javascript" src="/static/products/js/newproduct.js"></script>
+{% elif category.id == 38  %}
+<script type="text/javascript" src="/static/products/js/newassitant.js"></script>
+{% else %}
+<script type="text/javascript" src="/static/products/js/newproduct.js"></script>
+{% endif %}
+
+ 
+{% endblock %}

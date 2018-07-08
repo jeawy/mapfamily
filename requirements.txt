@@ -1,0 +1,12 @@
+django==1.11.4
+pillow
+djangorestframework
+markdown 
+django-filter
+django-cors-headers
+mysqlclient
+requests
+openunipay
+python-alipay-sdk
+xmltodict
+qrcode

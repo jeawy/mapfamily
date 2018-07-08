@@ -1,0 +1,90 @@
+{% extends 'admin/base.html' %}
+{% block publicmenu %}
+{% include 'admintitle.html' %}
+{% endblock %}
+{% block fixed_menu_class %}fixed_menu_class{%endblock%}
+{% load i18n %}
+{% block pagetitle%}修改商品信息{% endblock%}
+ {% block css %}
+<link href="/static/products/css/change.css" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="/static/css/HoldOn.css">  {% endblock %} 
+{% block content %}
+<form action="" method="post">
+    {%csrf_token%} 
+    <input type="hidden" name="method" value="detail_file" /> 
+    {% if product %}
+    <input type="hidden" name="productid" id="productid" value="{{product.id}}" /> 
+    {% endif %}
+    <input type="hidden" id="mainrulename" value="{{rulename}}" />   
+    <input type="hidden" id="vicerulename" value="{{vicerulename}}" />  
+</form>
+
+<section>
+    <!-- 路径导航 -->
+    <div class="container-fluid">
+        <ol class="breadcrumb container">
+            <li><a href="/product/products">管理中心</a></li>
+            <li><a href="{% url 'product:products' %}">商品列表</a></li>
+            <li class="active">发布商品</li>
+        </ol>
+    </div>
+    
+
+    <div  class="form-horizontal">
+        <div class="form-group container">
+            <label for="id" class="col-sm-2 control-label">商品类型：</label>
+            <div class="col-sm-4">
+                <select class="form-control " id="sel-category">
+                    {% for category in categories %}
+                           {% if product.category.id == category.id %}
+                                <option value ="{{category.id}}" selected="selected">{{category.name}}</option>
+                                {% else %}
+                                <option value ="{{category.id}}"  >{{category.name}}</option>
+                           {% endif %}
+                    {% endfor%}
+                </select>
+            </div>
+            <label for="id" class="col-sm-2 control-label">商品名称：
+            </label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" name="title" id="title" value="{{product.title}}" placeholder="">
+            </div>
+
+        </div>
+        
+        <div class="form-group container">
+            <label for="name" class="col-sm-2 control-label">{% trans 'Product Detail' %}:</label>
+            <div class="col-sm-10 ta-wrap">
+                <input type="text" class="form-control" name="desc" value="{{product.description|default:''}}" id="desc" placeholder="">
+                <span>0/50</span>
+            </div>
+
+        </div> 
+        <div class="form-group container">
+            <label for="message" class="col-sm-2 control-label">商品详情：</label>
+            <div class="col-sm-8">
+                    {{ form.as_p }} 
+            </div>
+
+        </div> 
+    </div>
+    
+    <div class="msg "> </div>
+    <div class="divsubmit"> 
+        <span class="btn-group " role="group " aria-label="... ">
+            <button type="button" class="btn orange-bg white submit" status="1">发布</button>
+            <button type="button" class="btn orange-bg white submit" status="0">存草稿</button>
+             <button type="button " class="btn orange-bg white btn-delete submit" status="3"> 删除 </button> 
+     </span>
+    </div>
+</section>
+{% endblock %} {% block js %}
+<script type="text/javascript" src="/static/js/HoldOn.min.js"></script>
+
+{{ form.media }}
+<script type="text/javascript" src="/static/products/js/new.js"></script> 
+<script type="text/javascript" src="/static/products/js/changeproduct.js"></script>
+ 
+
+ 
+{% endblock %}

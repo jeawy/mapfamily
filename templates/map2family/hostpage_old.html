@@ -1,0 +1,81 @@
+{% extends "admin/base_site.html" %}
+ {% block title %}主页{% endblock %} 
+   {% load admin_static %}
+{% block extrahead %}{{ block.super }} 
+{{ media }}
+{% endblock %}
+{% block keywords%}心事 每日一句 推荐{%endblock%}"
+{% block extrastyle %}{{ block.super }} 
+<link rel="stylesheet" type="text/css" media="screen"  href="/static/css/hostpage.css" />
+
+{% endblock %}
+ {% block coltype %}colM{% endblock %} 
+ {% block bodyclass %}{{ block.super }}  {% endblock %} 
+{% block content %} 
+            <div  >
+                        {% for block in blocks %}
+                        <div class="col-xs-3 col-sm-3 col-md-3 block block-{{block.id}}">
+                            <a href="{% url 'kb:block_kb_list' block.id %}"> {{block.title}}</a>
+                            </div>
+                        {% endfor %} 
+                        <div class="col-xs-3 col-sm-3 col-md-3 block block-2">
+                            <a href="{% url 'mailer:new_lastinfo' %}">写信件</a>
+                            </div> 
+                        <div class="col-xs-3 col-sm-3 col-md-3 block block-3">
+                            <a href="{% url 'mailer:index_lastinfo' %}"> 待发信件</a>
+                            </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 block block-1">
+                            <a href="{% url 'mailer:new_tofuture' %}"> 给未来的自己写一封信</a>
+                            </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 block block-2">
+                            <a href="{% url 'mailer:index_tofuture' %}"> 未来的信草稿箱</a>
+                            </div> 
+        </div>
+ 
+            <div class="row-sm" >
+                
+                    <div class="col-xs-2 col-sm-2 col-md-2   block-sm block block-4">     
+                        <a href="">heartbeat</a>   
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 block-sm block block-1">
+                            <a href="{% url 'user:portrait' %}"> 设置头像</a>
+                            </div> 
+                        {% if user.is_superuser %}
+                        <div class="col-xs-2 col-sm-2 col-md-2 block block-sm block-2">
+                                <a href="#">系统管理</a>
+                                </div>
+                            <div class="col-xs-2 col-sm-2 col-md-2 block block-sm  block-3">
+                                <a href="{% url 'user:admin_list_users' %}">用户管理<i class="fa fa-users fa-1x"></i></a>
+                                </div>
+                            <div class="col-xs-2 col-sm-2 col-md-2 block block-sm  block-2">
+                                <a href="{% url 'user:grouplist' %}">组列表</a> 
+                                </div>
+                            <div class="col-xs-2 col-sm-2 col-md-2 block block-sm  block-1">
+                                <a href="{% url 'user:newgroup' %}">新建组</a>  
+                            </div>  
+                        {% endif %}
+            </div>  
+ {% endblock %}
+
+ {% block footer_script %}{{ block.super}}
+ <script>
+    $(document).ready(function() {
+ 
+    var block_height = $('.block').width() ;
+        $('.block').css({'height':block_height+'px'});
+        $('.block').css({'line-height':block_height+'px'});
+        $('.block-1').css({'background-color':'#F5493C'});
+        $('.block-2').css({'background-color':'#78BC8B'});
+        $('.block-3').css({'background-color':'#224F78'});
+        $('.block-4').css({'background-color':'#ffc640'});
+        $('.block-msg').css({'background-color':'#005DAF'});
+        
+        $('.block-msg').css({'line-height':'80px'});
+
+        var block_height = $('.block-sm').width()  ;
+        $('.block-sm').css({'height':block_height+'px'});
+        $('.block-sm').css({'line-height':block_height+'px'});
+    });
+         
+ </script> 
+ {% endblock %} 

@@ -1,0 +1,26 @@
+
+/* 产品详情详细介绍的临时CSS */
+    .list-wrap { 
+        font-size: 14px;
+    }
+
+    .list-wrap .col-xs-8,
+    .cut-off .col-xs-8 { 
+    }
+
+    .list-wrap>.col-xs-8>div {
+        margin-bottom: 15px;
+    }
+
+    .cut-off {
+        margin: 0 0 30px 70px;
+    }
+
+    .cut-off>div {
+        border-bottom: 1px solid #ddd;
+        height: 15px
+    }
+
+    div#details{
+        padding:0px
+    }

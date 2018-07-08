@@ -1,0 +1,15 @@
+#id_title, #id_desc
+{
+    width: 100%;
+}
+
+#id_desc
+{
+    height: 130px;
+}
+
+.save
+{
+    width: 100%;
+    margin-top: 5%;
+}

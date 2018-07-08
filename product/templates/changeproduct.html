@@ -1,0 +1,94 @@
+ 
+<div class="form-group gray-white">
+        <div class="container">
+            <label for="message" class="col-xs-2 control-label">{{rulename}}：</label>
+        <div class="col-xs-7 format">
+
+            <div class="form-inline add-inp">
+
+                <div class="form-group">
+                     <input type="text" class="form-control" id="name" placeholder="{{rulename}}名称">
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" class="form-control" id="price" placeholder="价格">
+                </div>
+                <div class="form-group"> 
+                    <input type="text" class="form-control" id="inventory" title="不填写库存时，表示库存充足" placeholder="库存,可以不填写">
+                </div>
+                <button type="button" class="btn orange-bg add-rule blue-btn"><i class="fa fa-plus white" aria-hidden="true"></i></button>
+
+            </div>
+            {% if product %}
+            <table class="table table-hover table-bordered" id="tb_rule">
+          
+                <tr>
+                    <th>{{rulename}}名称<i class="fa fa-pencil" aria-hidden="true"></i></th> 
+                    <th>价格<i class="fa fa-pencil" aria-hidden="true"></i></th>  
+                    <th>库存<i class="fa fa-pencil" aria-hidden="true"></i></th>  
+                    <th>操作</th>
+                </tr>
+
+                {% for rule in product.adaptorrule_set.all %}
+                
+                    {% if rule.price %}
+                        <tr class="tr_rule" ruleid="{{rule.id}}">
+                            
+                            <td class="name" ><input type="text" value="{{rule.name}}" title="点击修改"/></td>
+                            
+                            <td class="price"> <input type="text" value="{{rule.price}}" title="点击修改"/></td> 
+                            <td class="inventory"> <input type="text" value="{{rule.inventory | default_if_none:''}}" title="点击修改"/></td> 
+                        
+                            <td class="operate">
+                                <i class="fa fa-trash-o " aria-hidden="true" title="删除"></i>
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table> 
+            {% endif %}
+            <table class="table_error table">
+            </table>
+        </div>
+        </div>
+    </div>
+
+    <div class="form-group gray-white">
+        <div class="container">
+            <label for="message" class="col-xs-2 control-label">{{vicerulename}}：</label>
+        <div class="col-xs-7 format">
+            <div class="form-inline"> 
+                <div class="form-group">
+                    <input type="text" class="form-control" id="pro" placeholder="{{vicerulename}}值：如：#EADF01">
+                    <input type="text" class="form-control" id="color_name" placeholder="{{vicerulename}}名称：如：黑色">
+                </div>
+                <button id="add-pro" type="button " class="btn orange-bg blue-btn">
+                    <i class="fa fa-plus white" aria-hidden="true "></i>
+                </button>
+
+            </div>
+            <table class="table table-hover table-bordered " id="pro-table">
+                <tr>
+                    <th>{{vicerulename}}值<i class="fa fa-pencil" aria-hidden="true"></i></th>
+                    <th>{{vicerulename}}名称<i class="fa fa-pencil" aria-hidden="true"></i></th>
+                  
+                    <th>删除</th>
+                </tr>
+                {% for rule in product.adaptorrule_set.all %}
+                {% if not rule.price %}
+                    <tr class="parameter_tr " ruleid="{{rule.id}}">
+                        <td class="name key"  ><input type="text" value="{{rule.name}}" title="点击修改"/></td>  
+                        <td class="name color_name"  ><input type="text" value="{{rule.color_name}}" title="点击修改"/></td> 
+                        <td class="operate">
+                            <i class="fa fa-trash-o " aria-hidden="true" title="删除"></i>
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </table>
+        </div>
+
+        </div>
+    </div>
+ 
+ 

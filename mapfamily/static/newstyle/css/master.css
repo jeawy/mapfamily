@@ -1,0 +1,202 @@
+﻿body{
+	margin:0px;
+	padding:0px;
+	min-width: 1080px;
+	} /*浏览器初始化*/
+
+header{                                     
+	
+	background-image: url('/static/newstyle/img/bgimg.jpg');
+	background-size: 100% 100%;
+	color:#FFF;
+	font-family: 微软雅黑;
+	}/*头部*/
+
+nav{
+	padding:10px 20px;
+	}/*菜单*/
+
+nav a{
+	color:#fff;
+	padding-left:20px;
+	}/*菜单的链接*/
+
+nav a:hover{
+	color:#fff;
+	}/*菜单hover效果*/
+	
+.en{
+	/*margin:120px auto 0px;*/
+	font-size: 28px;
+	font-family: verdana;
+	}
+.cn{
+    font-size: 52px;
+	letter-spacing:8px;
+	font-family:幼圆;
+}
+
+.cn span{
+	margin-left: 30px;
+	color: #f1501a;
+	font-size: 70px;
+	line-height: 1.8em;
+	}
+
+
+	
+
+a:hover{
+	text-decoration:none; 
+	}
+.font-small{
+	font-size: 15px;
+	color:#fff;
+	}
+table{
+margin:100px auto 0px;
+}
+
+td.dashed{
+	padding:10px 35px;
+	font-size:17px;
+	text-align: center;
+	}
+
+
+/*第一页完*/
+
+
+.main-1{
+	font-family: 微软雅黑;
+	padding:100px;
+	}	
+
+.title{
+    font-size: 32px;
+    font-weight: normal;
+    font-style: normal;
+	color: #333333;
+	text-align: center;
+}
+	
+.orage-border{
+	 overflow: hidden;
+    border-bottom-style: solid;
+    width: 60px;
+    max-width: 60px;
+    border-bottom-width: 4px;
+    border-bottom-color: #f1501a;
+	margin: 20px auto 0px;
+	
+}
+.msg{
+	color: rgb(102, 102, 102);
+	font-size: 15px;
+	margin-top:20px; 
+}
+li{
+	list-style: none;
+}
+
+.ul-div{
+	margin-top:200px;
+}
+.ul-div ul{
+	width: 25%;
+	padding: 0px 20px;
+}
+.ul-title{
+	font-size: 20px;
+	color: #3D444F;
+	margin: 15px auto;
+}
+.ul-msg{
+	color: #646A75;
+	font-size: 14px;
+}
+.font-w{
+	font-weight: 100;
+}
+/*第二页完*/
+
+.main-2{
+	background-color:#f4f4f4;
+	padding: 100px 5% 80px;
+	font-family: 微软雅黑;
+	text-align: center;
+	}
+.list-warp{
+	margin-top:100px;
+}
+
+.list{
+	width: 30%;
+	border: 1px solid #ccc;
+}
+.list-mid{
+	margin: 0px 5%;
+}
+img {
+	width: 100%;
+	height: auto；
+}
+.list-text{
+	background-color: #fff;
+	padding: 25px;
+}
+
+.list-title{
+	margin:0px auto 15px;
+	padding-bottom: 15px;
+	font-size:20px;
+	border-bottom:1px solid #ccc;
+}
+
+/*第三页完*/
+.margin-l{
+	margin-left: 30px;
+}
+.your{
+	    font-size: 28px;
+	font-family: verdana;
+	margin-bottom: 50px;
+	
+}
+
+.margin-bot{
+	margin-bottom: 30px;
+}
+
+.margin-top{
+	margin-top:50px;
+}
+
+footer{
+	color: #8d9095;
+	background-color:#0d0e11;
+	padding: 40px;
+	}
+
+textarea#msg{
+	border-radius: 5px;
+    max-width: 100%;
+	border: 1px solid #ccc;
+	display: block;
+	margin-bottom:10px;
+	width: 100%;
+	min-height:100px;
+}
+.my-lab{
+	margin-top: 5px;
+	display: block;
+
+}
+
+.main-4{
+	margin: 80px 5%;
+}
+.background{
+	background-image:url('/static/newstyle/img/wg.png');
+	background-color: rgba(44,62,80,0.5);
+}

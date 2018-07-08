@@ -1,0 +1,126 @@
+{% extends 'admin/base.html' %}
+{% block fixed_menu_class %}fixed_menu_class{%endblock%}
+{% block pagetitle%}{{product.title}}{% endblock%} 
+{% block css %}
+<link href="/static/css/pop_up.css" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="/static/css/swiper.css">
+<link href="/static/products/css/products.css" rel="stylesheet">
+<link href="/static/products/css/detail_temporary.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+{%csrf_token%}
+<input type="hidden" id="productid" value="{{product.id}}" />
+<div class="container container-main">
+   
+    <div class="col-xs-6 p-n img-wrap">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {% for pic in pics %} 
+                        <div class="swiper-slide">
+                            <div class="sider">
+                                <img class="product-pic" src="{{mediaroot}}{{pic.url}}" alt="">
+                            </div>
+                            <div class="pagination grey">{{forloop.counter}}/{{pics.count}}</div>
+                        </div> 
+                {% endfor %}
+        
+            </div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-warp container">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 shop">
+        <div class="fs24 item_name"> {{product.title|truncatechars:"100"}}{% if product.status == 0 %}【未上架】{% endif %}</div>
+        <div class="fs24">¥<span id="total_price">--</span>
+            
+        </div>
+        <div class="cut-line"></div>
+        <div>
+            <!--
+            {% for rule in product.adaptorrule_set.all %}
+            {% if rule.price  %} 
+                {{rule.rule_title}}
+            {% endif %}
+            {% endfor %}
+            -->
+            <!-- 具体版本 -->
+            {% if product.adaptorrule_set.all %}
+            {% for rule in product.adaptorrule_set.all %}
+                {% if rule.price %} 
+                <span class="edition  " data-price="{{rule.price}}" inventory="{{rule.inventory | default_if_none:'有货'}}"   ruleid="{{rule.id}}">
+                    {{rule.name}}  
+                </span>
+                {% endif %}
+            {% endfor %} 
+            {% endif %}
+        
+        </div>
+        <div>
+            {% for rule in product.adaptorrule_set.all %}
+            {% if not rule.price %}
+                {{rule.rule_title}}
+            {% endif %}
+            {% endfor %}
+
+            <!-- 表带颜色 -->
+            {% if product.adaptorrule_set.all %}  
+            {% for rule in product.adaptorrule_set.all %}
+                {% if not rule.price %}
+                <span class="b_color"  ruleid="{{rule.id}}" 
+                data-color="{{rule.name}}" data-color-title="{{rule.color_name}}"></span>
+                {% endif %}
+            {% endfor %} 
+            {% endif %}
+        </div>
+        <div class="cut-line"></div>
+        <div class="carnum clearfix p-r">
+            <input class="pull-left" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" id="carnum" type="text" min="1" value="1">
+            <span class="pull-left grey" role="group">
+                <div id="addition"><i class="fa fa-angle-up" aria-hidden="true"></i></div>
+                <div id="subtraction"><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+            </span>
+            <div class="inventory gray">库存数量：<span id="inventory">2222</span> </div>
+        </div>
+        <div class="grey">邮费：{% if product.mail_price == 0 %}免费{% else %}{{product.mail_price}}{%endif%}
+            <span class="ml30">发货时间:{{product.delivery_time}}</span></div>
+        <div>
+            {% if product.status == 1 %}
+                {% if product.inventory == 0 %}
+                <button class="common-btn grey-btn" disabled="disabled">已售罄</button>
+                {% else %}
+                <button class="common-btn white orange-bg" id="add-cart">加入购物车</button>
+                {% endif %}
+                <a class="orange ml30" href="{{product.taobaourl}}" target="__blank">了解更多></a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-xs-12 orange fs18 introduce"><div>产品概括</div></div>
+     <!-- 商品详情 -->
+    <div id="myTabContent" class="tab-content">
+        <div class="col-sm-12 col-md-12 tab-pane fade in active" id="details" role="tabpanel">
+            <div class="illustrate">
+                {{ product.detail|default:''|safe}}
+            </div>
+        </div>
+    </div>
+    <!-- 商品详情 end -->
+</div>
+<div class="pop_up">
+    <div class="fs16 gray">
+       <img src="/static/img/right.gif" alt="">
+       <span id="pop-up-msg">已添加至购物车 </span>
+    </div>
+    <button id="continue" class="grey-btn common-btn">继续购买</button>
+    <a class="common-btn orange-bg" href="/shopcar/shopcars/"><span class="white">现在结算</span></a>
+</div>
+
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="/static/js/pop_up.js"></script>
+<script type="text/javascript" src="/static/js/swiper-3.4.2.jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/login.js"></script>
+<script type="text/javascript" src="/static/products/js/detail.js"></script>
+{% endblock %}

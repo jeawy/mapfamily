@@ -1,0 +1,12 @@
+*.pptx
+*.pyc 
+*.docx
+*.docs 
+*.bak
+*.tmp
+*/migrations/*
+static-/*
+*.pem
+*.json
+*.md
+mapfamily/settings.py
