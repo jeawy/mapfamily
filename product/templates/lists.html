@@ -34,11 +34,10 @@
                             <img src="{{mediaroot}}{{product.thumbnail}}" alt="...">
                             <div class="caption">
                                 <h4><a href="{% url 'product:detail' product.id %}" >{{product.title}}</a></h4>
-                                <p class="price">
-                                    ¥&nbsp;{{product.adaptorrule_set.all.0.price}}
-                                </p>
-                                <a class="orange" href="{% url 'product:change' product.id %}">修改</a>
-                                <a class="orange" href="{% url 'product:change' product.id %}?pic">修改图片</a>
+                                <p class="price">分类{{product.category.name}}
+                                    
+                                </p> 
+                           
                             </div>
                         </div>
                     </div>

@@ -6,6 +6,7 @@
 *.tmp
 */migrations/*
 static-/*
+media/*
 *.pem
 *.json
 *.md

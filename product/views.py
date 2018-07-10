@@ -144,7 +144,7 @@ class ProductDetailView(DetailView):
    
 class ProductView(View):
 
-    @method_decorator(login_required)
+   
     def get(self, request):
         isMble  = dmb.process_request(request)
         content = {} 
