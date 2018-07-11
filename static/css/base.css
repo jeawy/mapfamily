@@ -1,3 +1,14 @@
+@charset "utf-8";
+/* 通用 */
+@font-face
+{
+font-family: lanting;
+src: url('/static/font/lanting.ttf');
+}
+.lanting{
+  font-family: lanting;
+}
+
 pre {
     font-size: 15px;
     color:black;
@@ -139,3 +150,7 @@ div.detail {
     min-width: 400px;
     width:98%;
 } 
+.container{
+  width: 1024px!important;
+  min-width: 1024px!important;
+}

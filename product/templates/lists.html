@@ -10,15 +10,13 @@
 {% endblock %} 
 {% block content %}
 
-<div  class="container m60"> 
+<div  class="row"> 
         
-        <div class="col-xs-10">
+        <div class="col-xs-12">
             <!-- 路径导航 -->
             
             <div class="usercentercontent">
-                    <div class="car-title">
-                            <a class="orange-bg order-form-btn common-btn" href="/product/products/?new"><span class="white">发布新商品</span></a>
-                        </div>
+                    
                 <div class="breadcrumb">
                     <form class="text-center">
                             <input class="search-val" type="search" name="keywords" placeholder="搜索管理内容">
@@ -47,6 +45,22 @@
             </div>
             
         </div>
+        <!-- 帖子列表start -->
+        <div class="col-xs-8">
+            <section>
+                <div>这是标题</div>
+                <div>这是内容概要</div>
+                <div>这是作者信息</div>
+            </section>
+        </div>
+        <!-- 帖子列表end -->
+        <!-- 右侧边栏start -->
+        <div class="col-xs-4">
+            <a class="orange-bg order-form-btn common-btn" href="/product/products/?new">
+                <span class="white">发布新商品</span>
+            </a>
+        </div>
+        <!-- 右侧边栏end -->
     </div>
 
 {% endblock %} {% block js %}

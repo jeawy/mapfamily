@@ -1,11 +1,17 @@
-﻿body{
+﻿@font-face{
+font-family: lanting;
+src: url('/static/font/lanting.ttf') format('ttf');
+}
+.container{
+	width: 1024px!important;
+	min-width: 1024px!important;
+  }
+body{
 	margin:0px;
 	padding:0px;
-	min-width: 1080px;
 	} /*浏览器初始化*/
 
 header{                                     
-	
 	background-image: url('/static/newstyle/img/bgimg.jpg');
 	background-size: 100% 100%;
 	color:#FFF;
@@ -33,19 +39,14 @@ nav a:hover{
 .cn{
     font-size: 52px;
 	letter-spacing:8px;
-	font-family:幼圆;
+	font-family:lanting;
 }
-
 .cn span{
 	margin-left: 30px;
 	color: #f1501a;
 	font-size: 70px;
 	line-height: 1.8em;
 	}
-
-
-	
-
 a:hover{
 	text-decoration:none; 
 	}
@@ -69,7 +70,8 @@ td.dashed{
 
 .main-1{
 	font-family: 微软雅黑;
-	padding:100px;
+	padding-top:100px;
+	padding-bottom:100px;
 	}	
 
 .title{
@@ -100,10 +102,9 @@ li{
 }
 
 .ul-div{
-	margin-top:200px;
+	margin-top:150px;
 }
 .ul-div ul{
-	width: 25%;
 	padding: 0px 20px;
 }
 .ul-title{
@@ -114,6 +115,10 @@ li{
 .ul-msg{
 	color: #646A75;
 	font-size: 14px;
+}
+.item-msg{
+	color: #646A75;
+	font-size: 12px;
 }
 .font-w{
 	font-weight: 100;
@@ -132,7 +137,7 @@ li{
 
 .list{
 	width: 30%;
-	border: 1px solid #ccc;
+	border: 1px solid #ddd;
 }
 .list-mid{
 	margin: 0px 5%;
@@ -147,10 +152,11 @@ img {
 }
 
 .list-title{
-	margin:0px auto 15px;
+	margin:0px auto 10px;
 	padding-bottom: 15px;
-	font-size:20px;
-	border-bottom:1px solid #ccc;
+	font-size:16px;
+	border-bottom:1px solid #ddd;
+	color: #333;
 }
 
 /*第三页完*/
@@ -181,11 +187,12 @@ footer{
 textarea#msg{
 	border-radius: 5px;
     max-width: 100%;
-	border: 1px solid #ccc;
+	border: 1px solid #ddd;
 	display: block;
 	margin-bottom:10px;
 	width: 100%;
 	min-height:100px;
+	resize: none;
 }
 .my-lab{
 	margin-top: 5px;
