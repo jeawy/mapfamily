@@ -8,19 +8,16 @@ src: url('/static/font/lanting.ttf');
 .lanting{
   font-family: lanting;
 }
-
 pre {
     font-size: 15px;
     color:black;
 }
+.gray-font{
+  color: gray;
+}
 /*table.dataTable tr:nth-child(even) {
     background-color: red;
 }*/
-body
-{
-  background-color: #F5FFFA;  
-  /*min-width: 1100px;*/
-}
 
  div.search 
 {

@@ -3,20 +3,17 @@
 {% include 'admintitle.html' %}
 {% endblock %}
 {% block fixed_menu_class %}fixed_menu_class{%endblock%}
-{% block pagetitle%}商品列表{% endblock%} {% block css %} {% load staticfiles %}
+{% block pagetitle%}商品列表{% endblock%}
+{% block css %} {% load staticfiles %}
 <link href="/static/appuser/css/usercenter.css" rel="stylesheet">
 <link href="/static/products/css/list.css" rel="stylesheet"> 
-
 {% endblock %} 
 {% block content %}
 
-<div  class="row"> 
-        
+<div class="row"> 
         <div class="col-xs-12">
             <!-- 路径导航 -->
-            
             <div class="usercentercontent">
-                    
                 <div class="breadcrumb">
                     <form class="text-center">
                             <input class="search-val" type="search" name="keywords" placeholder="搜索管理内容">
@@ -24,7 +21,6 @@
                     </form>
                     <div class="active">搜索结果:</div>
                 </div>
-        
                 <div class="clearfix">
                     {% for product in products %}
                     <div class="col-xs-3">
@@ -33,23 +29,25 @@
                             <div class="caption">
                                 <h4><a href="{% url 'product:detail' product.id %}" >{{product.title}}</a></h4>
                                 <p class="price">分类{{product.category.name}}
-                                    
-                                </p> 
-                           
+                                </p>
                             </div>
                         </div>
                     </div>
                     {% endfor %}  
                 </div>
             </div>
-            
         </div>
         <!-- 帖子列表start -->
         <div class="col-xs-8">
             <section>
-                <div>这是标题</div>
-                <div>这是内容概要</div>
-                <div>这是作者信息</div>
+                <h4>这是标题</h4>
+                <div class="gray-font">这是内容概要</div>
+                <div>这是作者信息<span>时间</span></div>
+            </section>
+            <section>
+                <h4>这是标题</h4>
+                <div class="gray-font">这是内容概要</div>
+                <div>这是作者信息<span>时间</span></div>
             </section>
         </div>
         <!-- 帖子列表end -->
@@ -60,7 +58,9 @@
             </a>
         </div>
         <!-- 右侧边栏end -->
-    </div>
+</div>
 
-{% endblock %} {% block js %}
-<script type="text/javascript" src="/static/js/list.js"></script> {% endblock %}
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="/static/js/list.js"></script>
+{% endblock %}
