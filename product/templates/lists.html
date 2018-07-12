@@ -5,7 +5,7 @@
 {% block fixed_menu_class %}fixed_menu_class{%endblock%}
 {% block pagetitle%}商品列表{% endblock%}
 {% block css %} {% load staticfiles %}
-<link href="/static/appuser/css/usercenter.css" rel="stylesheet">
+<!-- <link href="/static/appuser/css/usercenter.css" rel="stylesheet"> -->
 <link href="/static/products/css/list.css" rel="stylesheet"> 
 {% endblock %} 
 {% block content %}
@@ -40,7 +40,7 @@
         <!-- 帖子列表start -->
         <div class="col-xs-8">
             <section>
-                <h4>这是标题</h4>
+                <h4><a href="/product/products/?detail">这是标题</a></h4>
                 <div class="gray-font">这是内容概要</div>
                 <div>这是作者信息<span>时间</span></div>
             </section>
@@ -56,10 +56,39 @@
             <a class="orange-bg order-form-btn common-btn" href="/product/products/?new">
                 <span class="white">发布新商品</span>
             </a>
+            <h5>热门文章：</h5>
+            <div>
+                <div>我是热门列表</div>
+            </div>
         </div>
         <!-- 右侧边栏end -->
 </div>
-
+<div class="container product-warp">
+        {% for category in categories %}
+         <div class="col-xs-12">
+             <div class="classify-name">{{category.name}}</div>
+         </div>
+             {% for product in  products %}
+                 {% if product.category == category %}
+                         <div class="col-xs-6">
+                             <div class="product-list text-center">
+                                 <a href="{% url 'product:detail' product.id %}">22
+                                     <img class="product-pic" src="{{mediaroot}}/{{product.thumbnail}}" alt="">
+                                     <div class="fs16 black">{{product.title}}</div>
+                                     <div class="orange">¥&nbsp;
+                                         {% for rule in product.adaptorrule_set.all %}
+                                             {% if rule.price %}
+                                                {{rule.price|stringformat:'d'}}
+                                             {% endif %}
+                                         {% endfor %} 
+                                     </div>
+                                 </a>
+                             </div>qwqwewqe
+                         </div>
+                     {% endif %}
+             {% endfor %} 
+        {% endfor %} 
+</div>
 {% endblock %}
 {% block js %}
 <script type="text/javascript" src="/static/js/list.js"></script>
