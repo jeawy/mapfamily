@@ -9,85 +9,52 @@
 <link href="/static/products/css/list.css" rel="stylesheet"> 
 {% endblock %} 
 {% block content %}
+<div class="row main">
 
-<div class="row"> 
-        <div class="col-xs-12">
-            <!-- 路径导航 -->
-            <div class="usercentercontent">
-                <div class="breadcrumb">
-                    <form class="text-center">
-                            <input class="search-val" type="search" name="keywords" placeholder="搜索管理内容">
-                            <button class="btn-search" type="submit" title="点击搜索"><i class="fa fa-search orange" aria-hidden="true"></i></button>
-                    </form>
-                    <div class="active">搜索结果:</div>
-                </div>
-                <div class="clearfix">
+                <div class="col-xs-8">
                     {% for product in products %}
-                    <div class="col-xs-3">
-                        <div class="thumbnail">
-                            <img src="{{mediaroot}}{{product.thumbnail}}" alt="...">
-                            <div class="caption">
+                    <section class="row">
+                        <div class="col-xs-1">
+                            <img class="user-image" src="/static/img/dog.jpg" alt="">
+                        </div>
+                        <div class="col-xs-11">
+                            
+                            <div class="caption pull-left">
                                 <h4><a href="{% url 'product:detail' product.id %}" >{{product.title}}</a></h4>
-                                <p class="price">分类{{product.category.name}}
-                                </p>
+                                <div class="section-msg">分类{{product.category.name}}
+                                </div>
+                            </div>
+                            <div class="pull-right">
+                                    <img src="{{mediaroot}}{{product.thumbnail}}" alt="...">
                             </div>
                         </div>
-                    </div>
+                    </section>
                     {% endfor %}  
                 </div>
-            </div>
-        </div>
-        <!-- 帖子列表start -->
-        <div class="col-xs-8">
-            <section>
-                <h4><a href="/product/products/?detail">这是标题</a></h4>
-                <div class="gray-font">这是内容概要</div>
-                <div>这是作者信息<span>时间</span></div>
-            </section>
-            <section>
-                <h4>这是标题</h4>
-                <div class="gray-font">这是内容概要</div>
-                <div>这是作者信息<span>时间</span></div>
-            </section>
-        </div>
-        <!-- 帖子列表end -->
-        <!-- 右侧边栏start -->
+
+                <!-- 右侧边栏start -->
         <div class="col-xs-4">
-            <a class="orange-bg order-form-btn common-btn" href="/product/products/?new">
-                <span class="white">发布新商品</span>
+            <a class="btn btn-default post-new" href="/product/products/?new">
+                发表新文章&nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             </a>
-            <h5>热门文章：</h5>
-            <div>
-                <div>我是热门列表</div>
-            </div>
+            <h5 class="grey">热门文章：</h5>
+            <ul class="hot-list">
+                <li>
+                    <img class="user-image-small" src="/static/img/dog.jpg" alt="">
+                    <a href="#">一数官方网站。。</a>
+                </li>
+                <li>
+                        <img class="user-image-small" src="/static/img/dog.jpg" alt="">
+                        <a href="#">一数官方网站。。</a>
+                </li>
+                <li class="grey">
+                    <a href="">更多&nbsp;<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                </li>
+            </ul>
         </div>
         <!-- 右侧边栏end -->
-</div>
-<div class="container product-warp">
-        {% for category in categories %}
-         <div class="col-xs-12">
-             <div class="classify-name">{{category.name}}</div>
-         </div>
-             {% for product in  products %}
-                 {% if product.category == category %}
-                         <div class="col-xs-6">
-                             <div class="product-list text-center">
-                                 <a href="{% url 'product:detail' product.id %}">22
-                                     <img class="product-pic" src="{{mediaroot}}/{{product.thumbnail}}" alt="">
-                                     <div class="fs16 black">{{product.title}}</div>
-                                     <div class="orange">¥&nbsp;
-                                         {% for rule in product.adaptorrule_set.all %}
-                                             {% if rule.price %}
-                                                {{rule.price|stringformat:'d'}}
-                                             {% endif %}
-                                         {% endfor %} 
-                                     </div>
-                                 </a>
-                             </div>qwqwewqe
-                         </div>
-                     {% endif %}
-             {% endfor %} 
-        {% endfor %} 
+
+        
 </div>
 {% endblock %}
 {% block js %}

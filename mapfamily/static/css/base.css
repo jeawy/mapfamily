@@ -5,15 +5,11 @@ pre {
 /*table.dataTable tr:nth-child(even) {
     background-color: red;
 }*/
-body
-{
-  background-color: #ededef;  
-  /*min-width: 1100px;*/
+.container{
+  width: 1024px;
 }
 .header
 {
-    background-color: #fdfdfd;  
-    box-shadow: 0px 3px 3px -2px rgba(0,0,0, 0.3);
     margin-bottom: 5px;
 }
  div.search 
@@ -143,8 +139,94 @@ div.detail {
     font-weight:bold;   
     min-width: 400px;
     width:98%;
+}
+.footer,.header{
+  background-color: rgb(36, 41, 46);
+  color: #fff;
+}
+a:link,a:visited,a:hover,a:active{
+  text-decoration: none;
+  color: inherit;
+}
+.web-image{
+  height: 100%;
+  padding: 15px 0;
+}
+.col-portrait{
+  padding-left: 0px;
+}
+/* 搜索 */
+.search{
+  padding-left: 0px;
+}
+.fa-search{
+  color: gray;
+  
+}
+.btn-search{
+  transform: translate(-150%,10px);
+  background: none;
+  border: unset;
+  outline: none;
+}
+.search-val{
+  padding: 6px 31px 6px 6px;
+  margin-top: 20.5px;
+  display: inline-block;
+  border-radius: 3px;
+  background-color:rgb(64, 68, 72); 
+  outline: none;
+}
+.search-val:focus{
+  background-color:rgb(250, 251, 252);
+}
+
+/**
+ *  修改google浏览器，默认的聚焦黄色背景为白色
+ */
+ input:-webkit-autofill,select:-webkit-autofill {  
+  -webkit-box-shadow: 0 0 0px 1000px white  inset !important;  
 } 
 
- 
-
- 
+input{
+  outline-color: invert ;
+outline-style: none ;
+outline-width: 0px ;
+border: none ;
+border-style: none ;
+text-shadow: none ;
+-webkit-appearance: none ;
+-webkit-user-select: text ;
+outline-color: transparent ;
+box-shadow: none;
+}
+.common-btn {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  min-width: 100px;
+}
+.common-btn:hover{
+  opacity: .9;
+}
+.grey{
+  color: #969696;
+}
+ul{
+  margin: 0px;
+  padding: 0px;
+}

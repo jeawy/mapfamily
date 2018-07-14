@@ -4,54 +4,63 @@ input.inp_search{
 .search_wrap{
     margin:20px 20%;
 }
-
 .main{
-    margin-top: 20px;
+    margin-top: 30px;
 }
+ .main>.col-xs-4{
+    padding-left: 45px;
+} 
 
-.main>row div{
-    padding: 20px 10px;
-}
 h4{
     font-size: 16px;
+    margin-top: 0px;
 }
 h4>a{
     color:inherit;
     display: inline-block;
-    height: 40px;
     overflow: hidden;
 }
-.thumbnail img{
-    padding: 15px;
-}
+
 a.orange+a.orange{
     margin-left: 10px;
 }
-.btn-search{
-    transform: translateX(-150%);
-    background: none;
-    border: unset;
-    outline: unset;
-}
-.fa-search.orange{
-    color: #ea5014;
-}
-.search-val{
-    width: 50%;
-    padding: 8px 31px 8px 6px;
-    margin: 22px auto 2px 30px;
+
+
+.user-image{
+    width: 100%;
+    border-radius: 3px;
     border: 1px solid #ddd;
-    display: inline-block
 }
-.search-val:focus{
-    outline-color: #ea5014;
-    border-color: transparent;
+.user-image-small{
+    width: 30px;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
 }
-.thumbnail>img{
-    height:auto !important;
-    min-width: 100%;
-    background: linear-gradient(to top right, #f5f5f5 , #fff);
+section>.col-xs-1{
+    padding-right: 0px;
 }
-.thumbnail{
-    padding: 0px;
+section>.col-xs-11{
+    border-bottom:1px solid #e1e4e8;
+    padding-bottom: 30px;
+}
+section:last-child>.col-xs-11{
+    border-bottom:none;
+}
+section{
+    margin-bottom: 30px;
+}
+.section-msg{
+    color: rgb(153, 153, 153);
+}
+.post-new{
+    font-weight: 600;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.hot-list{
+    margin-top: 15px;
+}
+.hot-list li{
+padding-bottom: 5px;
 }

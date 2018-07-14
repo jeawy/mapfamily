@@ -822,7 +822,7 @@ table#change-history tbody th {
 #user-tools {
     margin-top: 12px;
     float: right;
-    padding: 1.2em 11%;
+    padding: 1.2em 0;
     font-size: 12px;
     text-align: right;
     font-family: "Microsoft Yahei","微软雅黑",Tahoma, Helvetica, Arial,  STXihei, sans-serif;

@@ -40,14 +40,20 @@
 <body  >
  {% block Container %}
 <!-- Container -->
-<div class="container">
+
     
       <div class="header">
-            <div class="row ">
-                 <div class="col-xs-2 col-md-2  col-portrait">
-                        <a href="/"><div class="portrait" id="id_user_portrait"></div></a>
+            <div class="container">
+                 <div class="col-xs-1 col-portrait">
+                        <a href="/"><div class="portrait" id="id_user_portrait">
+                            <img class="web-image" src="/static/img/change.png" alt="">
+                        </div></a>
                     </div>
-                    <div class="col-xs-10 col-md-10">
+                    <form class="col-xs-3 search" action="">
+                            <input class="search-val" type="search" name="keywords" placeholder="搜索管理内容">
+                            <button class="btn-search" type="submit" title="点击搜索"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </form>
+                    <div class="col-xs-8">
                         {% if user.is_active and user.is_staff %}
                             <div id="user-tools">  {% block welcome-msg %}  {% trans '这里是Map2family欢迎您,' %}  <strong>
                                 {% firstof user.get_short_name user.get_username %}</strong>. 
@@ -68,7 +74,7 @@
        
       </div>
      
-</div>   
+  
      
 {% endblock %}
     <!-- Content -->
@@ -106,15 +112,13 @@
 {% endblock %}
     <br/>
     {% block footer %}
-  <div class="container">
-      <div class="footer">
+    <div class="footer">
         <div   class="row">
             
             <span>版权所有： 张继伟  邮箱：postmaster@map2family.com</span>
             <br />
             <span ><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备15017611号</a></span>
         </div>
-    </div>
     {% endblock %}
     
 </div> 
