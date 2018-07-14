@@ -140,8 +140,12 @@ div.detail {
     min-width: 400px;
     width:98%;
 }
-.footer,.header{
+.header{
   background-color: rgb(36, 41, 46);
+  color: #fff;
+}
+.footer{
+  background-color: rgb(144, 145, 146);
   color: #fff;
 }
 a:link,a:visited,a:hover,a:active{
