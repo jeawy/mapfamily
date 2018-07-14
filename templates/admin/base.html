@@ -50,14 +50,14 @@
                         </div></a>
                     </div>
                     <form class="col-xs-3 search" action="">
-                            <input class="search-val" type="search" name="keywords" placeholder="搜索管理内容">
+                            <input class="search-val" type="search" name="keywords" placeholder="搜索文章">
                             <button class="btn-search" type="submit" title="点击搜索"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </form>
                     <div class="col-xs-8">
                         {% if user.is_active and user.is_staff %}
-                            <div id="user-tools">  {% block welcome-msg %}  {% trans '这里是Map2family欢迎您,' %}  <strong>
-                                {% firstof user.get_short_name user.get_username %}</strong>. 
-                                <a href="{% url 'logout' %}"> 退出登录</a>
+                            <div id="user-tools">  {% block welcome-msg %}  {% trans '欢迎您:' %}  <strong>
+                                {% firstof user.get_short_name user.get_username %}</strong>
+                                <a class="common-btn btn-s-1 sign-out" href="{% url 'logout' %}">退出</a>
                                 {% endblock %} {% block userlinks %}{% endblock %}
                             </div>
                             {% else %}
