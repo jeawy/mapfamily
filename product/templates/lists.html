@@ -5,58 +5,57 @@
 {% block fixed_menu_class %}fixed_menu_class{%endblock%}
 {% block pagetitle%}商品列表{% endblock%}
 {% block css %} {% load staticfiles %}
-<!-- <link href="/static/appuser/css/usercenter.css" rel="stylesheet"> -->
 <link href="/static/products/css/list.css" rel="stylesheet"> 
 {% endblock %} 
 {% block content %}
 <div class="row main">
-
-                <div class="col-xs-8">
-                    {% for product in products %}
-                    <section class="row">
-                        <div class="col-xs-1">
-                            <img class="user-image" src="/static/img/dog.jpg" alt="">
+                <!-- 文章列表start -->
+    <div class="col-xs-8">
+        {% for product in products %}
+        <section class="row">
+            <div class="col-xs-1">
+                <img class="user-image" src="/static/img/dog.jpg">
+            </div>
+            <div class="col-xs-11">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <h4>
+                            <a href="{% url 'product:detail' product.id %}" >{{product.title}}</a>
+                        </h4>
+                        <div class="section-msg">文章开头几行{{product.category.name}}
                         </div>
-                        <div class="col-xs-11 clearfix">
-                            
-                            <div class="pull-left">
-                                <h4><a href="{% url 'product:detail' product.id %}" >{{product.title}}</a></h4>
-                                <div class="section-msg">文章开头几行{{product.category.name}}
-                                </div>
-                            </div>
-                            <div class="pull-right">
-                                    <img class="sec-image" src="/static/img/te_b.jpg" alt="...">
-                            </div>
-                            <div class="cut-line col-xs-12">
-                            </div>
-                        </div>
-                    </section>
-                    {% endfor %}  
+                    </div>
+                    <div class="col-xs-4">
+                            <img class="sec-image" src="/static/img/te_b.jpg" alt="图片无法显示">
+                    </div>
                 </div>
-
+                <hr>
+            </div>
+        </section>
+        {% endfor %}  
+    </div>
+                <!-- 文章列表end -->
                 <!-- 右侧边栏start -->
-        <div class="col-xs-4">
-            <a class="btn btn-default post-new" href="/product/products/?new">
-                发表新文章&nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-            </a>
-            <h5 class="grey">热门文章：</h5>
-            <ul class="hot-list">
-                <li>
+    <div class="col-xs-4">
+        <a class="btn btn-default post-new" href="/product/products/?new">
+            发表新文章&nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </a>
+        <h5 class="grey">热门文章：</h5>
+        <ul class="hot-list">
+            <li>
+                <img class="user-image-small" src="/static/img/dog.jpg" alt="">
+                <a href="#">一数官方网站。。</a>
+            </li>
+            <li>
                     <img class="user-image-small" src="/static/img/dog.jpg" alt="">
                     <a href="#">一数官方网站。。</a>
-                </li>
-                <li>
-                        <img class="user-image-small" src="/static/img/dog.jpg" alt="">
-                        <a href="#">一数官方网站。。</a>
-                </li>
-                <li class="grey">
-                    <a href="">更多&nbsp;<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                </li>
-            </ul>
-        </div>
-        <!-- 右侧边栏end -->
-
-        
+            </li>
+            <li class="grey">
+                <a href="">更多&nbsp;<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+            </li>
+        </ul>
+    </div>
+                <!-- 右侧边栏end -->
 </div>
 {% endblock %}
 {% block js %}

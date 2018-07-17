@@ -159,16 +159,13 @@ code strong {
     color: #930;
 }
 
-hr {
+hr{
     clear: both;
-    color: #eee;
-    background-color: #eee;
+    background-color:#e1e4e8;
     height: 1px;
     border: none;
     margin: 0px;
     padding: 0px;
-    font-size: 1px;
-    line-height: 10px;
 }
 
 /* TEXT STYLES & MODIFIERS */
