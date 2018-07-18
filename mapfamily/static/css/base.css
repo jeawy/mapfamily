@@ -141,8 +141,8 @@ div.detail {
   color: #fff;
 }
 .footer{
-  background-color: rgb(144, 145, 146);
-  color: #fff;
+  background-color: #eee;
+  color: #333;
 }
 a:link,a:visited,a:hover,a:active{
   text-decoration: none;
