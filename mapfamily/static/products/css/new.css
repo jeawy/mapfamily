@@ -3,8 +3,6 @@
     width: 100%;
     text-align: center;
     background-color: #fff;
-    padding-top: 8px;
-    border: 1px solid #ddd;
 }
 
 .my-btn {
@@ -18,7 +16,10 @@ span.btn-group {
 i.fa-shopping-cart {
     margin-right: 5px;
 }
-
+#cke_id_detail{
+    width:100%!important;
+    max-width: 100%!important;
+}
 
 .format {
     padding: 12px 12px;

@@ -74,6 +74,3 @@ function fixedFooter(){//页面过小时，底部固定
         $('.footer').css({'position':'fixed','bottom':'0px','width':'100%'});
     }
 }
-$(function(){
-    fixedFooter();
-})
