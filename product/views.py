@@ -209,7 +209,7 @@ class ProductView(View):
             return HttpResponse("403")
             
         if 'method' in request.POST:
-            method = request.POST['method'].lower()
+            method = request.POST['method'].lower() 
             if method == 'put':# 修改
                 return self.put(request)
             elif method == 'delete': # 删除 
@@ -286,7 +286,8 @@ class ProductView(View):
         修改 
         """
         result = {}  
-        data = QueryDict(request.body.decode('utf-8'))  
+        data = request.POST #QueryDict(request.body.decode('utf-8')) 
+         
         if 'id' in data:
             productid = data['id']
             try:
@@ -333,7 +334,7 @@ class ProductView(View):
         删除指定商品
         """
         result = {}
-        data = QueryDict(request.body.decode('utf-8'))  
+        data = request.POST 
         if 'id' in data:
             productid = data['id'] 
             try: 
@@ -353,7 +354,7 @@ class ProductView(View):
     def fallback(self, request):
         """下架商品"""
         result = {}
-        data = QueryDict(request.body.decode('utf-8')) 
+        data = request.POST 
         if 'id' in data:
             productid = data['id'] 
             try: 
