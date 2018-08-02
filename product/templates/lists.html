@@ -14,7 +14,7 @@
         {% for product in products %}
         <section class="row">
             <div class="col-xs-1">
-                <img class="user-image" src="/static/img/dog.jpg">
+                <img class="user-image" src="{{product.user.head_portrait}}">
             </div>
             <div class="col-xs-11">
                 <div class="row">
@@ -22,11 +22,11 @@
                         <h4>
                             <a href="{% url 'product:detail' product.id %}" >{{product.title}}</a>
                         </h4>
-                        <div class="section-msg">文章开头几行{{product.category.name}}
+                        <div class="section-msg">{{product.category.name}}
                         </div>
                     </div>
                     <div class="col-xs-4">
-                            <img class="sec-image" src="/static/img/te_b.jpg" alt="图片无法显示">
+                            <img class="sec-image" src="{{mediaroot}}{{product.thumbnail}}" alt="图片无法显示">
                     </div>
                 </div>
                 <hr>
